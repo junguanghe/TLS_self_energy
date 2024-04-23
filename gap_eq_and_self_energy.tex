@@ -8,6 +8,8 @@ top=9mm,left=10mm,bottom=6mm,right=9mm]{geometry}
 
 \begin{document}
 
+\section{Self-Energy}
+
 The Dyson equation is
 \begin{align}
     \widehat{G}^{-1} = \widehat{G}^{(0)-1} - \widehat{\Sigma}
@@ -160,7 +162,7 @@ In order to do analytic continuation, we introduce $\varepsilon_l \equiv \vareps
     \frac{-i\varepsilon_l + \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)
      + \left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)\widehat{\tau}_1}
      {\sqrt{\left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)^2 
-     + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}
+     + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}\label{renormalized}
 \end{align}
 and we substitute $i\varepsilon_n \rightarrow \varepsilon + i0^+$, we have
 \begin{align}
@@ -242,6 +244,48 @@ where
     \frac{\hbar}{\tau_{in}}N_{ge}T_c^{tls}\eval{\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
     \frac{1}{\left|\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right|}}_{T_c^{tls}}
 \end{align}
+With mean-field pairing,
+in the weak-coupling limit, we assume the interaction kernel becomes
+\begin{align}
+    \frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2} \rightarrow
+    \frac{1}{E}\Theta(E-|\varepsilon_l|)
+\end{align}
+then in Eq.~\eqref{renormalized}, we have $\Sigma_{\varepsilon,in}^{(2,re)} = 0$ because the
+right-hand side is an odd function of $\varepsilon_l$, and the off-diagonal self-energy
+does not have a dependence on energy $\varepsilon_n$,
+\begin{align}
+    \Sigma_{\Delta,in}^{(2,re)} = \frac{\hbar}{\tau_{in}E}N_{ge}T\sum_{|\varepsilon_l| < |E|}
+    \frac{\Delta + \Sigma_{\Delta,in}^{(2,re)}}
+    {\sqrt{\left(\Delta + \Sigma_{\Delta,in}^{(2,re)}\right)^2 + \varepsilon_l^2 }}
+\end{align}
+If we once again turn off the mean-field pairing, we have
+\begin{align}
+    1 = \frac{\hbar}{\tau_{in}E}N_{ge}T\sum_{|\varepsilon_l| < |E|}
+    \frac{1}{\sqrt{\left(\Sigma_{\Delta,in}^{(2,re)}\right)^2 + \varepsilon_l^2 }}
+\end{align}
+When $T \rightarrow T_c^{tls}$, we have $\Sigma_{\Delta,in}^{(2,re)} \ll T_c^{tls}$, and
+\begin{align}
+    1 = \frac{\hbar}{\tau_{in}E}N_{ge}T_c^{tls}\sum_{|\varepsilon_l| < E}
+    \frac{1}{|\varepsilon_l|}
+\end{align}
+This is similar to the BCS gap equation, except that the cutoff is $E$ instead of
+the Debye frequency $\varepsilon_D$, and the interaction strength is proportional to
+$1/E$ and $N_{ge}$. Use the Digamma function in Eq.~\eqref{eq:digamma}, we have
+\begin{align}
+    T_c^{tls} = \frac{2e^\gamma}{\pi}E\exp\left(-\frac{\pi E}{N_{ge}\hbar/\tau_{in}}\right)
+    \approx 1.13E\exp\left(-\frac{\pi E}{N_{ge}\hbar/\tau_{in}}\right)
+\end{align}
+Compare with the BCS gap equation near $T_c$, we have
+\begin{align}
+    1 = gN(0)T_c\sum_{|\varepsilon_n| < \varepsilon_D}\frac{1}{|\varepsilon_n|}
+\end{align}
+and the solution is
+\begin{align}
+    T_c = \frac{2e^\gamma}{\pi}\varepsilon_D\exp\left(-\frac{\pi}{gN(0)}\right)
+    \approx 1.13\varepsilon_D\exp\left(-\frac{\pi}{gN(0)}\right)
+\end{align}
+
+\section{Density of States}
 
 The quasiclassical Green's function is
 \begin{align}
@@ -258,13 +302,16 @@ The density of states is
     N(\varepsilon) = -\frac{1}{\pi}\Im{g(\varepsilon^R)}
     = \Im{\frac{\tilde{\varepsilon}}{\sqrt{\tilde{\Delta}^2 - (\tilde{\varepsilon} + i0^+)^2}}}
 \end{align}
+
+\section{Gap Equation}
+
 The gap equation is
 \begin{align}\label{eq:gap_eq}
     \Delta = -v_0 T\sum_{\varepsilon_n}^{\varepsilon_c}\int\frac{\dd[3]k}{(2\pi)^3}\frac{1}{2}\Tr{\widehat{G}\widehat{\tau}_1}
     \equiv g\pi T\sum_{\varepsilon_n}^{\varepsilon_c}\frac{\tilde{\Delta}}{\sqrt{\tilde{\Delta}^2 + \tilde{\varepsilon}_n^2}}
 \end{align}
 The digamma function is
-\begin{align}
+\begin{align}\label{eq:digamma}
     K(T) \equiv \pi T \sum_{\varepsilon_n}^{\varepsilon_c}\frac{1}{|\varepsilon_n|} \approx \ln(1.13\frac{\varepsilon_c}{T})
 \end{align}
 Then we have
