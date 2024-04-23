@@ -1,0 +1,286 @@
+\documentclass[]{article}
+
+\usepackage[
+top=9mm,left=10mm,bottom=6mm,right=9mm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{physics}
+
+\begin{document}
+
+The Dyson equation is
+\begin{align}
+    \widehat{G}^{-1} = \widehat{G}^{(0)-1} - \widehat{\Sigma}
+\end{align}
+we have
+\begin{align}
+    \widehat{G}^{(0)-1}    & = i\varepsilon_n - \xi\widehat{\tau}_3 - \Delta\widehat{\tau}_1 \\
+    \widehat{\Sigma}       & \equiv \Sigma_\varepsilon + \Sigma_\Delta \widehat{\tau}_1      \\
+    i\tilde{\varepsilon}_n & \equiv i\varepsilon_n - \Sigma_\varepsilon
+    \rightarrow \tilde{\varepsilon}_n = \varepsilon_n + i\Sigma_\varepsilon                  \\
+    \tilde{\Delta}         & \equiv \Delta + \Sigma_\Delta
+\end{align}
+and
+\begin{align}
+    \widehat{G} = (i\tilde{\varepsilon}_n - \xi\widehat{\tau}_3 - \tilde{\Delta}\widehat{\tau}_1)^{-1}
+    = - \frac{i\tilde{\varepsilon}_n + \xi\widehat{\tau}_3 + \tilde{\Delta}\widehat{\tau}_1}
+    {\tilde{\varepsilon}_n^2 + \xi^2 + \tilde{\Delta}^2}
+\end{align}
+so from $\widehat{G}^{(0)}$ to $\widehat{G}$, the change is $\Delta \rightarrow \tilde{\Delta}$
+and $\varepsilon_n \rightarrow \tilde{\varepsilon}_n$.
+
+We multiply $\widehat{G}$ from left and right to the Dyson equation, we have
+\begin{align}
+    1 = \widehat{G}\widehat{G}^{(0)-1} - \widehat{G}\widehat{\Sigma} \rightarrow
+    1 = \widehat{\tau}_3 \widehat{G}\widehat{G}^{(0)-1} \widehat{\tau}_3
+    - \widehat{\tau}_3 \widehat{G}\widehat{\Sigma} \widehat{\tau}_3 \\
+    1 = \widehat{G}^{(0)-1}\widehat{G} - \widehat{\Sigma}\widehat{G} \rightarrow
+    1 = \widehat{G}^{(0)-1}\widehat{\tau}_3\widehat{\tau}_3\widehat{G}
+    - \widehat{\Sigma}\widehat{\tau}_3\widehat{\tau}_3\widehat{G}
+\end{align}
+Subtract the two equations, we have
+\begin{align}
+    \comm{\widehat{G}^{(0)-1}\widehat{\tau}_3-\widehat{\Sigma}\widehat{\tau}_3}{\widehat{\tau}_3\widehat{G}} & = 0 \\
+    \rightarrow \comm{i\varepsilon_n\widehat{\tau}_3 + i\Delta\widehat{\tau}_2 - \widehat{\Sigma}\widehat{\tau}_3}
+    {\widehat{\tau}_3\widehat{G}}                                                                            & = 0
+\end{align}
+In quasiclassical limit, we assume $\widehat{\Sigma}$ does not depend on $\xi$, and we can apply $\int\dd\xi$ to get the
+homogeneous Eilenberger equation
+\begin{align}
+    \comm{i\varepsilon_n\widehat{\tau}_3 + i\Delta\widehat{\tau}_2 - \widehat{\Sigma}\widehat{\tau}_3}
+    {\widehat{\mathcal{G}}} = 0
+\end{align}
+where the quasiclassical Green's function is
+\begin{align}
+    \widehat{\mathcal{G}} = \int\dd\xi\widehat{\tau}_3\widehat{G}
+    = -\pi\frac{i\tilde{\varepsilon}_n\widehat{\tau}_3 + i\tilde{\Delta}\widehat{\tau}_2}
+    {\sqrt{\tilde{\Delta}^2 + \tilde{\varepsilon}_n^2}}
+\end{align}
+
+The second-order self-energy is
+\begin{align}
+    \widehat{\Sigma}^{(2)} = \widehat{\Sigma}_{vv}^{(2)} + \widehat{\Sigma}_{vm}^{(2)}
+    + \widehat{\Sigma}_{mm}^{(2)} +\widehat{\Sigma}_{nn}^{(2)}
+    \equiv \widehat{\Sigma}^{(2)}_\text{elastic} + \widehat{\Sigma}^{(2)}_\text{inelastic}
+\end{align}
+We define the scattering rates as
+\begin{align}
+    \frac{\hbar}{2\pi\tau_{el}(E, T)} \equiv \hbar\left(\frac{1}{\tau_{vv}} + \frac{2N_{ge}}{\tau_{vm}}
+    + \frac{1}{\tau_{mm}}\right)
+\end{align}
+and
+\begin{align}
+    \frac{\hbar}{2\pi\tau_{in}} \equiv \frac{\hbar}{\tau_{nn}}
+\end{align}
+The elastic part is proportional to the quasiclassical Green's function,
+\begin{align}
+    \widehat{\Sigma}^{(2)}_\text{elastic}(\varepsilon_n)
+     & =\frac{\hbar}{2\tau_{el}}
+    \frac{-i\varepsilon_n+\Delta\widehat{\tau_1}}{\sqrt{\Delta^2+\varepsilon_n^2}}
+    \rightarrow \widehat{\Sigma}^{(2)}_\text{elastic}\widehat{\tau}_3 = \frac{\hbar}{2\pi\tau_{el}}\widehat{\mathcal{G}}^{(0)}
+\end{align}
+After renormalization, $\widehat{\mathcal{G}}^{(0)} \rightarrow \widehat{\mathcal{G}}$,
+the elastic self-energy drops out of the Eilenberger equation.
+
+For the inelastic part, if we evaluate the two Matsubara sums first, we have
+\begin{align}
+    \widehat{\Sigma}^{(2)}_\text{inelastic}(\varepsilon_n)
+     = \frac{\hbar}{2\pi\tau_{in}}\int\dd\xi\bigg(1-N_{ge}[n_F(-\xi_\Delta)-n_F(\xi_\Delta)]\bigg)
+    \frac{-i\varepsilon_n+\Delta\widehat{\tau}_1\frac{\xi_\Delta-E}{\xi_\Delta}}
+    {(\xi_\Delta-E)^2+\varepsilon_n^2}
+\end{align}
+where we denote the transformed kinetic energy as $\xi_\Delta\equiv\text{sgn}(\xi)\sqrt{\xi^2+\Delta^2}$.
+% After renormalization, we have
+% \begin{align}
+%     \Sigma_{\varepsilon,in}^{(2)}(\varepsilon_n) + \Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\widehat{\tau}_1
+%      = \frac{\hbar}{2\pi\tau_{in}}\int\dd\xi &\left(1-N_{ge}\tanh(\frac{\text{sgn}(\xi)\sqrt{\xi^2+\left(\Delta+\Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\right)^2}}{2T})\right)\nonumber\\
+%     & \times
+%      \frac{-i\varepsilon_n+\Sigma_{\varepsilon,in}^{(2)}(\varepsilon_n)
+%      +\left(\Delta+\Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\right)\widehat{\tau}_1
+%      \frac{\text{sgn}(\xi)\sqrt{\xi^2+\left(\Delta+\Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\right)^2}-E}
+%      {\text{sgn}(\xi)\sqrt{\xi^2+\left(\Delta+\Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\right)^2}}}
+%      {\left(\text{sgn}(\xi)\sqrt{\xi^2+\left(\Delta+\Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\right)^2}-E\right)^2
+%      +\left(\varepsilon_n+i\Sigma_{\varepsilon,in}^{(2)}(\varepsilon_n)\right)^2}
+% \end{align}
+
+If we evaluate the $\xi$ integral first, we have
+\begin{align}
+    \widehat{\Sigma}^{(2)}_\text{inelastic}(\varepsilon_n)
+    = -\frac{\hbar}{2\pi\tau_{in}}\sum_{a\neq b}T^2\sum_{n_1,n_2}D_a(\varepsilon_{n_1})D_b(\varepsilon_{n_2})
+    \widehat{\mathcal{G}}^{(0)}(\varepsilon_n-\varepsilon_{n_1}+\varepsilon_{n_2})\widehat{\tau}_3
+\end{align}
+We define the Bosonic Matsubara frequency as $\omega_m \equiv \varepsilon_{n_1}-\varepsilon_{n_2}$.
+\begin{align}
+    \widehat{\Sigma}^{(2)}_\text{inelastic}(\varepsilon_n)
+    = -\frac{\hbar}{2\pi\tau_{in}}\sum_{a\neq b}T^2\sum_{m,n_2}D_a(\omega_m+\varepsilon_{n_2})D_b(\varepsilon_{n_2})
+    \widehat{\mathcal{G}}^{(0)}(\varepsilon_n-\omega_m)\widehat{\tau}_3
+\end{align}
+Note that
+\begin{align}
+    &T\sum_{n_2}D_a(\omega_m+\varepsilon_{n_2})D_b(\varepsilon_{n_2}) \\
+    = &T\sum_{n_2}\frac{1}{i\varepsilon_{n_2}+i\omega_m+\mu_f-\varepsilon_a}\times\frac{1}{i\varepsilon_{n_2}+\mu_f-\varepsilon_b}\\
+    = &\frac{n_F(\varepsilon_a-i\omega_m-\mu_f)-n_F(\varepsilon_b-\mu_f)}{(\varepsilon_a-\varepsilon_b)-i\omega_m}\\
+    = &\frac{n_a-n_b}{\varepsilon_{ab}-i\omega_m}
+\end{align}
+where we denote $n_a\equiv n_F(\varepsilon_a-\mu_f)$. Now sum over the two levels
+\begin{align}
+    &\sum_{a\neq b}\frac{n_a-n_b}{\varepsilon_{ab}-i\omega_m} \\
+    =&\frac{N_{eg}}{E-i\omega_m} + \frac{N_{eg}}{E+i\omega_m} \\
+    =&-2N_{ge}\frac{E}{E^2+\omega_m^2}
+\end{align}
+and we have
+\begin{align}
+    \widehat{\Sigma}^{(2)}_\text{inelastic}(\varepsilon_n)
+    = & \frac{\hbar}{2\pi\tau_{in}}\times2N_{ge}T\sum_{m}\frac{E}{E^2+\omega_m^2}\widehat{\mathcal{G}}^{(0)}(\varepsilon_n-\omega_m)\widehat{\tau}_3\\
+    \Sigma_{\varepsilon,in}^{(2)}(\varepsilon_n) + \Sigma_{\Delta,in}^{(2)}(\varepsilon_n)\widehat{\tau}_1
+    = & \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{m}\frac{E}{E^2+\omega_m^2}
+    \frac{-i(\varepsilon_n-\omega_m) + \Delta\widehat{\tau}_1}{\sqrt{\Delta^2 + (\varepsilon_n-\omega_m)^2}}
+\end{align}
+After renormalization, $\widehat{\mathcal{G}}^{(0)} \rightarrow \widehat{\mathcal{G}}$,
+and $\widehat{\Sigma}_\text{inelastic}^{(2)}\rightarrow \widehat{\Sigma}_\text{inelastic}^{(2,re)}$,
+which includes a set of diagrams with particular `Saturn' pattern.
+\begin{align}
+    \widehat{\Sigma}_\text{inelastic}^{(2,re)}(\varepsilon_n)
+    = & \frac{\hbar}{\pi\tau_{in}}N_{ge}T\sum_{m}\frac{E}{E^2+\omega_m^2}
+    \widehat{\mathcal{G}}(\varepsilon_n-\omega_m)\widehat{\tau}_3 \\
+    \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n) + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)\widehat{\tau}_1
+    = & \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{m}\frac{E}{E^2+\omega_m^2}
+    \frac{-i(\varepsilon_n-\omega_m) + \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n-\omega_m)
+     + \left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n-\omega_m)\right)\widehat{\tau}_1}
+     {\sqrt{\left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n-\omega_m)\right)^2 
+     + \left(\varepsilon_n-\omega_m+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n-\omega_m)\right)^2}}
+\end{align}
+In order to do analytic continuation, we introduce $\varepsilon_l \equiv \varepsilon_n - \omega_m$,
+\begin{align}
+    \widehat{\Sigma}_\text{inelastic}^{(2,re)}(\varepsilon_n)
+    = & \frac{\hbar}{\pi\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \widehat{\mathcal{G}}(\varepsilon_l)\widehat{\tau}_3 \\
+    \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n) + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)\widehat{\tau}_1
+    = & \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \frac{-i\varepsilon_l + \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)
+     + \left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)\widehat{\tau}_1}
+     {\sqrt{\left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)^2 
+     + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}
+\end{align}
+and we substitute $i\varepsilon_n \rightarrow \varepsilon + i0^+$, we have
+\begin{align}
+    \widehat{\Sigma}_\text{inelastic}^{(2,re)}(\varepsilon)
+    = & \frac{\hbar}{\pi\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2-(\varepsilon-i\varepsilon_l)^2}
+    \widehat{\mathcal{G}}(\varepsilon_l)\widehat{\tau}_3 \\
+    \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon) + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon)\widehat{\tau}_1
+    = & \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2-(\varepsilon-i\varepsilon_l)^2}
+    \frac{-i\varepsilon_l + \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)
+     + \left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)\widehat{\tau}_1}
+     {\sqrt{\left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)^2 
+     + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}
+\end{align}
+If we turn off the mean-field pairing, i.e. $\Delta = 0$ in Eq.~\eqref{eq:gap_eq}, then the whole system
+becomes a normal metal, and the question becomes whether the interaction between electrons and TLSs
+can induce a superconducting state below a critical temperature,
+i.e. $\Sigma_{\Delta,in}^{(2,re)}(\varepsilon) > 0$ when $T < T_c^{tls}$,
+\begin{align}
+    \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n) + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)\widehat{\tau}_1
+    = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \frac{-i\varepsilon_l + \Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)
+     + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\widehat{\tau}_1}
+     {\sqrt{\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)^2 
+     + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}
+\end{align}
+
+When $T \geq T_c^{tls}$, we have $\Sigma_{\Delta,in}^{(2,re)} = 0$.
+For the diagonal part $\Sigma_{\varepsilon,in}^{(2,re)}$, we have
+\begin{align}
+    i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)
+    = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \text{sgn}\left(\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)
+\end{align}
+We propose an ansatz that $\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)$
+is an odd function of $\varepsilon_n$, and has the same sign as $\varepsilon_n$, i.e.
+$\text{sgn}(\varepsilon_n) = \text{sgn}\left(i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)\right)$, and
+$\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n) = -\Sigma_{\varepsilon,in}^{(2,re)}(-\varepsilon_n)$.
+Then we have
+\begin{align}
+    i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)
+    = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}\text{sgn}(\varepsilon_l)
+\end{align}
+We seperate the positive and negative parts of $\varepsilon_l$ in the sum, and we have
+\begin{align}
+    i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)
+    & = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\varepsilon_l > 0}\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    - \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\varepsilon_l < 0}\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+\end{align}
+We define $\omega_m \equiv \varepsilon_n - \varepsilon_l = 2m\pi T$, and
+\begin{align}
+    i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)
+    & = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m < \varepsilon_n}\frac{E}{E^2+\omega_m^2}
+    - \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m > \varepsilon_n}\frac{E}{E^2+\omega_m^2}\\
+    & = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m > -\varepsilon_n}\frac{E}{E^2+\omega_m^2}
+    - \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m > \varepsilon_n}\frac{E}{E^2+\omega_m^2}\\
+    & = \frac{\hbar}{\tau_{in}}N_{ge}\text{sgn}(\varepsilon_n)T
+    \sum_{|\omega_m|<|\varepsilon_n|}\frac{E}{E^2+\omega_m^2}
+\end{align}
+This solution is consistent with the ansatz.
+
+For the off-diagonal part, when $T \rightarrow T_c^{tls}$,
+we have $i\Sigma_{\varepsilon,in}^{(2,re)} \gg \Sigma_{\Delta,in}^{(2,re)} \rightarrow 0$, and
+\begin{align}
+    \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)
+    = \frac{\hbar}{\tau_{in}}N_{ge}T_c^{tls}\sum_l\eval{\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \frac{\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)}
+    {\left|\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right|}}_{T_c^{tls}} \label{eq:off-diagonal}
+\end{align}
+This is just an eigenvalue problem. For $\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)$ to have a non-trivial solution,
+we should have
+\begin{align}
+    \sum_l \bigg(M_{nl} - \delta_{nl}\bigg) \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l) = 0
+    \leftrightarrow
+    \det(M_{nl} - \delta_{nl}) = 0
+\end{align}
+where
+\begin{align}
+    M_{nl} = 
+    \frac{\hbar}{\tau_{in}}N_{ge}T_c^{tls}\eval{\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \frac{1}{\left|\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right|}}_{T_c^{tls}}
+\end{align}
+
+The quasiclassical Green's function is
+\begin{align}
+    \widehat{\mathcal{G}} \equiv \int\dd\xi\widehat{\tau}_3\widehat{G}
+    =-\pi\frac{i\tilde{\varepsilon}_n\widehat{\tau}_3 + i\tilde{\Delta}\widehat{\tau}_2}
+    {\sqrt{\tilde{\Delta}^2 + \tilde{\varepsilon}_n^2}}
+    =\begin{pmatrix}
+         g    & f  \\
+         -f^* & -g
+     \end{pmatrix}
+\end{align}
+The density of states is
+\begin{align}
+    N(\varepsilon) = -\frac{1}{\pi}\Im{g(\varepsilon^R)}
+    = \Im{\frac{\tilde{\varepsilon}}{\sqrt{\tilde{\Delta}^2 - (\tilde{\varepsilon} + i0^+)^2}}}
+\end{align}
+The gap equation is
+\begin{align}\label{eq:gap_eq}
+    \Delta = -v_0 T\sum_{\varepsilon_n}^{\varepsilon_c}\int\frac{\dd[3]k}{(2\pi)^3}\frac{1}{2}\Tr{\widehat{G}\widehat{\tau}_1}
+    \equiv g\pi T\sum_{\varepsilon_n}^{\varepsilon_c}\frac{\tilde{\Delta}}{\sqrt{\tilde{\Delta}^2 + \tilde{\varepsilon}_n^2}}
+\end{align}
+The digamma function is
+\begin{align}
+    K(T) \equiv \pi T \sum_{\varepsilon_n}^{\varepsilon_c}\frac{1}{|\varepsilon_n|} \approx \ln(1.13\frac{\varepsilon_c}{T})
+\end{align}
+Then we have
+\begin{align}
+    \frac{1}{g} = \pi T\sum_{\varepsilon_n}^{\varepsilon_c}
+    \frac{\tilde{\Delta}/\Delta}{\sqrt{\tilde{\Delta}^2 + \tilde{\varepsilon}_n^2}}
+    \overset{\text{clean limit}}{=} \pi T\sum_{\varepsilon_n}^{\varepsilon_c}
+    \frac{1}{\sqrt{\Delta^2 + \varepsilon_n^2}}
+    \overset{T\rightarrow T_{c_0}}{=}\pi T_{c_0}\sum_{\varepsilon_n}^{\varepsilon_c}\frac{1}{|(2n+1)\pi T_{c_0}|}
+    \approx \ln(1.13\frac{\varepsilon_c}{T_{c_0}})
+\end{align}
+Subtract the previous two equations, we have
+\begin{align}
+    \ln\frac{T}{T_{c_0}} = \pi T\sum_n
+    \Bigg(\frac{1 + \Sigma_\Delta/\Delta}{\sqrt{(\Delta + \Sigma_\Delta)^2 + (\varepsilon_n + i\Sigma_\varepsilon)^2}}
+    - \frac{1}{|\varepsilon_n|}\Bigg)
+\end{align}
+
+\end{document}
