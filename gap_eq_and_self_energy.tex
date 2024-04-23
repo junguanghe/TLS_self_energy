@@ -266,18 +266,18 @@ If we once again turn off the mean-field pairing, we have
 When $T \rightarrow T_c^{tls}$, we have $\Sigma_{\Delta,in}^{(2,re)} \ll T_c^{tls}$, and
 \begin{align}
     1 = \frac{\hbar}{\tau_{in}E}N_{ge}T_c^{tls}\sum_{|\varepsilon_l| < E}
-    \frac{1}{|\varepsilon_l|}
+    \eval{\frac{1}{|\varepsilon_l|}}_{T_c^{tls}}
 \end{align}
 This is similar to the BCS gap equation, except that the cutoff is $E$ instead of
 the Debye frequency $\varepsilon_D$, and the interaction strength is proportional to
 $1/E$ and $N_{ge}$. Use the Digamma function in Eq.~\eqref{eq:digamma}, we have
 \begin{align}
     T_c^{tls} = \frac{2e^\gamma}{\pi}E\exp\left(-\frac{\pi E}{N_{ge}\hbar/\tau_{in}}\right)
-    \approx 1.13E\exp\left(-\frac{\pi E}{N_{ge}\hbar/\tau_{in}}\right)
+    \approx 1.13E\eval{\exp\left(-\frac{\pi E}{N_{ge}\hbar/\tau_{in}}\right)}_{T_c^{tls}}
 \end{align}
 Compare with the BCS gap equation near $T_c$, we have
 \begin{align}
-    1 = gN(0)T_c\sum_{|\varepsilon_n| < \varepsilon_D}\frac{1}{|\varepsilon_n|}
+    1 = gN(0)T_c\sum_{|\varepsilon_n| < \varepsilon_D}\frac{1}{|(2n+1)\pi T_c|}
 \end{align}
 and the solution is
 \begin{align}
