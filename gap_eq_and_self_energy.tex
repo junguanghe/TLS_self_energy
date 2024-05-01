@@ -176,6 +176,8 @@ and we substitute $i\varepsilon_n \rightarrow \varepsilon + i0^+$, we have
      {\sqrt{\left(\Delta+\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)\right)^2 
      + \left(\varepsilon_l+i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)^2}}
 \end{align}
+
+\section{TLS induced $T_c^{tls}$ without mean-field pairing}
 If we turn off the mean-field pairing, i.e. $\Delta = 0$ in Eq.~\eqref{eq:gap_eq}, then the whole system
 becomes a normal metal, and the question becomes whether the interaction between electrons and TLSs
 can induce a superconducting state below a critical temperature,
@@ -191,7 +193,7 @@ i.e. $\Sigma_{\Delta,in}^{(2,re)}(\varepsilon) > 0$ when $T < T_c^{tls}$,
 
 When $T \geq T_c^{tls}$, we have $\Sigma_{\Delta,in}^{(2,re)} = 0$.
 For the diagonal part $\Sigma_{\varepsilon,in}^{(2,re)}$, we have
-\begin{align}
+\begin{align}\label{eq:diagonal_normal}
     i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_n)
     = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_l\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
     \text{sgn}\left(\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right)
@@ -219,7 +221,7 @@ We define $\omega_m \equiv \varepsilon_n - \varepsilon_l = 2m\pi T$, and
     & = \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m > -\varepsilon_n}\frac{E}{E^2+\omega_m^2}
     - \frac{\hbar}{\tau_{in}}N_{ge}T\sum_{\omega_m > \varepsilon_n}\frac{E}{E^2+\omega_m^2}\\
     & = \frac{\hbar}{\tau_{in}}N_{ge}\text{sgn}(\varepsilon_n)T
-    \sum_{|\omega_m|<|\varepsilon_n|}\frac{E}{E^2+\omega_m^2}
+    \sum_{|\omega_m|<|\varepsilon_n|}\frac{E}{E^2+\omega_m^2} \label{eq:diagonal}
 \end{align}
 This solution is consistent with the ansatz.
 
@@ -244,26 +246,52 @@ where
     \frac{\hbar}{\tau_{in}}N_{ge}T_c^{tls}\eval{\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
     \frac{1}{\left|\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right|}}_{T_c^{tls}}
 \end{align}
-With mean-field pairing,
-in the weak-coupling limit, we assume the interaction kernel becomes
+
+\section{TLS induced $T_c$ shift with mean-field pairing}
+With mean-field pairing, interaction with TLSs can induce a shift of $T_{c_0}$ to $T_c$.
+When $T \rightarrow T_c$, we have $\Delta \ll T_c$ and $\Sigma_{\Delta,in}^{(2,re)} \ll T_c$,
+the solution of the diagonal self-energy $\Sigma_{\varepsilon,in}^{(2,re)}$ is still Eq.~\eqref{eq:diagonal}.
+For the off-diagonal part, the expression is similar to Eq.~\eqref{eq:off-diagonal}, which is
+\begin{align}
+    \frac{\Sigma_{\Delta,in}^{(2,re)}(\varepsilon_n)}{\Delta}
+    = \frac{\hbar}{\tau_{in}}N_{ge}T_c\sum_l\eval{\frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2}
+    \frac{1 + \Sigma_{\Delta,in}^{(2,re)}(\varepsilon_l)/\Delta}
+    {\left|\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}(\varepsilon_l)\right|}}_{T_c}
+\end{align}
+The renormalized gap equation Eq.~\eqref{eq:gap_eq_renormalized} becomes
+\begin{align}
+    \ln\frac{T_c}{T_{c_0}} = \pi T_c\sum_n
+    \Bigg(\frac{1 + \Sigma_\Delta/\Delta}{|\varepsilon_n + i\Sigma_\varepsilon|}
+    - \frac{1}{|\varepsilon_n|}\Bigg)
+\end{align}
+
+
+\section{Weak-Coupling Limit}
+In weak-coupling limit, we assume the interaction kernel becomes
 \begin{align}
     \frac{E}{E^2+(\varepsilon_n-\varepsilon_l)^2} \rightarrow
     \frac{1}{E}\Theta(E-|\varepsilon_l|)
 \end{align}
-then in Eq.~\eqref{renormalized}, we have $\Sigma_{\varepsilon,in}^{(2,re)} = 0$ because the
-right-hand side is an odd function of $\varepsilon_l$, and the off-diagonal self-energy
-does not have a dependence on energy $\varepsilon_n$,
+then the self-energy will not depend on energy $\varepsilon_n$.
+In the normal state, i.e. when $T \geq T_c$,
+the equation for the diagonal self-energy is similar to
+Eq.~\eqref{eq:diagonal_normal}, which is
 \begin{align}
-    \Sigma_{\Delta,in}^{(2,re)} = \frac{\hbar}{\tau_{in}E}N_{ge}T\sum_{|\varepsilon_l| < |E|}
-    \frac{\Delta + \Sigma_{\Delta,in}^{(2,re)}}
-    {\sqrt{\left(\Delta + \Sigma_{\Delta,in}^{(2,re)}\right)^2 + \varepsilon_l^2 }}
+    i\Sigma_{\varepsilon,in}^{(2,re)} = \frac{\hbar}{\tau_{in}E}N_{ge}T
+    \sum_{|\varepsilon_l| < E}
+    \text{sgn}\left(\varepsilon_l + i\Sigma_{\varepsilon,in}^{(2,re)}\right)
 \end{align}
-If we once again turn off the mean-field pairing, we have
-\begin{align}
-    1 = \frac{\hbar}{\tau_{in}E}N_{ge}T\sum_{|\varepsilon_l| < |E|}
-    \frac{1}{\sqrt{\left(\Sigma_{\Delta,in}^{(2,re)}\right)^2 + \varepsilon_l^2 }}
+A trivial solution is $\Sigma_{\varepsilon,in}^{(2,re)} = 0$. In this case,
+when $T \rightarrow T_c$, the off-diagonal self-energy is determined by
+\begin{align}\label{eq:off-diagonal_weak}
+    \Sigma_{\Delta,in}^{(2,re)} = \frac{\hbar}{\tau_{in}E}N_{ge}T_c\sum_{|\varepsilon_l| < |E|}
+    \eval{\frac{\Delta + \Sigma_{\Delta,in}^{(2,re)}}{|\varepsilon_l|}}_{T_c}
+    = \frac{\hbar}{\tau_{in}E}N_{ge}\left(\Delta + \Sigma_{\Delta,in}^{(2,re)}\right)
+    T_c\sum_{|\varepsilon_l| < |E|}\eval{\frac{1}{|\varepsilon_l|}}_{T_c}
 \end{align}
-When $T \rightarrow T_c^{tls}$, we have $\Sigma_{\Delta,in}^{(2,re)} \ll T_c^{tls}$, and
+\subsection{TLS induced $T_c^{tls}$}
+If we once again turn off the mean-field pairing $\Delta = 0$,
+the TLS induced $T_c^{tls}$ is determined by
 \begin{align}
     1 = \frac{\hbar}{\tau_{in}E}N_{ge}T_c^{tls}\sum_{|\varepsilon_l| < E}
     \eval{\frac{1}{|\varepsilon_l|}}_{T_c^{tls}}
@@ -284,6 +312,13 @@ and the solution is
     T_c = \frac{2e^\gamma}{\pi}\varepsilon_D\exp\left(-\frac{\pi}{gN(0)}\right)
     \approx 1.13\varepsilon_D\exp\left(-\frac{\pi}{gN(0)}\right)
 \end{align}
+\subsection{TLS induced $T_c$ shift}
+In weak-coupling limit, with mean-field pairing, when $T \rightarrow T_c$, if the diagonal self-energy
+$\Sigma_{\varepsilon,in}^{(2,re)} = 0$, according to the gap equation Eq.~\eqref{eq:gap_eq},
+the off-diagonal self-energy $\Sigma_{\Delta,in}^{(2,re)}/\Delta = 0$ should be satisfied,
+otherwise the infinite sum in the gap equation will diverge, and $T_c$ is not shifted by the interaction with TLSs.
+Meanwhile, we can actually solve the off-diagonal self-energy from Eq.~\eqref{eq:off-diagonal_weak},
+and the solution is not garanteed to be zero. Why will the weak-coupling limit lead to this inconsistency?
 
 \section{Density of States}
 
@@ -327,7 +362,7 @@ Subtract the previous two equations, we have
 \begin{align}
     \ln\frac{T}{T_{c_0}} = \pi T\sum_n
     \Bigg(\frac{1 + \Sigma_\Delta/\Delta}{\sqrt{(\Delta + \Sigma_\Delta)^2 + (\varepsilon_n + i\Sigma_\varepsilon)^2}}
-    - \frac{1}{|\varepsilon_n|}\Bigg)
+    - \frac{1}{|\varepsilon_n|}\Bigg)\label{eq:gap_eq_renormalized}
 \end{align}
 
 \end{document}
