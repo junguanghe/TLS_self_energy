@@ -365,4 +365,213 @@ Subtract the previous two equations, we have
     - \frac{1}{|\varepsilon_n|}\Bigg)\label{eq:gap_eq_renormalized}
 \end{align}
 
+\section{The TLS model}
+The Hamiltonian is
+\begin{equation}
+    H=
+    H_{\text{BCS}}
+    +
+    H_\text{imp}
+    +
+    H_\text{e-imp}
+    \,,
+\end{equation}
+where
+\begin{equation}
+    H_\text{imp}(\{\vb{X}_j\}) = \sum_{j=1}^N H_{\text{imp},j}(\vb{X}_j)
+    =
+    \sum_{j=1}^{N}
+    \left\{
+    \frac{|\vb{P}_j|^2}{2M}
+    +
+    U_j(\vb{X}_j)
+    \right\}
+    \,,
+\end{equation}
+$U_j$ is the potential for each impurity, which have different centers $\vb{R}_j$ and orientations $\vu{a}_j$.
+$\vb{X}_j$ is the position of the $j$-th impurity.
+The interaction between electrons and impurities is
+\begin{equation}
+    H_\text{e-imp}(\{\vb{X}_j\})
+    = 
+    \sum_{\alpha}\int d^3r\,
+    \psi^{\dag}_{\alpha}(\vb{r})
+    \sum_{j}V(\vb{r}-\vb{X}_j)
+    \psi_{\alpha}(\vb{r})
+    \,,
+    \label{eq-e-TLS}
+\end{equation}
+We approximate each impurity as a TLS with local strain,
+\begin{equation}
+    \label{eq-H_TLS}
+    H_{\text{imp}} \rightarrow
+    H_\text{TLS}=\sum_j\frac{E_j}{2}\,\sigma_z(j)
+    \,,
+\end{equation}
+Here $E_j = \sqrt{J_j^2 + \varepsilon_j^2}$.
+$J_j = \ev{H_\text{imp}}{e}_j - \ev{H_\text{imp}}{g}_j$ is the tunneling matrix element.
+$\varepsilon_j$ is the strain.
+The interaction between electrons and TLSs is
+\begin{equation}
+    H_\text{e-TLS}
+    =
+    \sum_{\alpha}\int\dd[3]r\,\psi^\dagger_{\alpha}(\vb{r})
+    \sum_j
+    \bigg[
+    v_j(\vb{r})\,
+    + 
+    m_j(\vb{r})\,\sigma_{z}(j)
+    + 
+    n_j(\vb{r})\,\sigma_{x}(j)
+    \bigg]
+    \psi_{\alpha}(\vb{r})
+    \,,
+\end{equation}
+Here the interaction potentials $f_j(\vb{r}) = f(\vb{r}-\vb{R}_j, \vb{a}_j)$ where $f(\vb{r})$ refers to $v(\vb{r}), m(\vb{r}), n(\vb{r})$.
+In momentum representation, we have $\psi^\dagger_{\alpha}(\vb{r}) = \frac{1}{\sqrt{V}}\sum_{\vb{k}'}e^{-i\vb{k}'\cdot\vb{r}}c^\dagger_{\vb{k}'\alpha}$,
+\begin{equation}\label{H_TLS}
+    H_\text{e-TLS}
+    = \frac{1}{V}
+    \sum_{\vb{k}',\vb{k};\alpha}
+    c^{\dag}_{\vb{k}'\alpha}\sum_{j}
+    e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
+    \bigg[
+    v_{\vb{k}'-\vb{k}}(j)\,
+    +
+    m_{\vb{k}'-\vb{k}}(j)\,\sigma_{z}(j)
+    +
+    n_{\vb{k}'-\vb{k}}(j)\,\sigma_{x}(j)
+    \bigg]\,
+    c_{\vb{k}\alpha}
+    \,,
+\end{equation}
+where $f_{\vb{k}'-\vb{k}}\equiv\int d^3r\,e^{-i(\vb{k}'-\vb{k})\cdot\vb{r}}\,f(\vb{r})$ for the three electron-TLS interactions, which have dimension of $[\text{Energy}\times\text{Volume}]$.
+We use Abrikosov pseudo-fermion to factorize spin operators, $\va{\sigma}(j)=\sum_{a,b}f^{\dag}_{j,a}\,\va{\sigma}_{ab}\,f_{j,b}$
+\begin{eqnarray}
+    \label{eq-H_electron_pseudo_fermion}
+    H_{\text{e-TLS}} 
+    = \frac{1}{V}
+    \sum_{\vb{k}',\vb{k};\alpha}
+    c^\dagger_{\vb{k}'\alpha}\sum_{j} 
+    e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
+    \bigg[\,v_{\vb{k}'-\vb{k}}(j)\,
+    + 
+    \sum_{a,b}
+    \,f^{\dag}_{j,a}\,A_{\vb{k}'-\vb{k}}^{ab}(j)\,f_{j,b}\,
+    \bigg]c_{\vb{k}\alpha}
+\end{eqnarray}
+where
+\begin{align}
+    A_{\vb{k}'-\vb{k}}^{ab}(j)
+    =
+    m_{\vb{k}'-\vb{k}}(j)\,\left(\sigma_z\right)_{ab} 
+    + 
+    n_{\vb{k}'-\vb{k}}(j)\,\left(\sigma_x\right)_{ab}
+    =\begin{pmatrix}
+        m_{\vb{k}'-\vb{k}}(j) & n_{\vb{k}'-\vb{k}}(j) \\
+        n_{\vb{k}'-\vb{k}}(j) & -m_{\vb{k}'-\vb{k}}(j)
+    \end{pmatrix}_{ab}
+\end{align}
+And we use Popov-Fedotov method to do the perturbation expansion.
+The first-order terms include a v and a m term.
+They are elastic and are just corrections to the chemical potential.
+Note that the \textbf{unperturbed} pseudo-fermion propagator $D_{ij,ab}\equiv\delta_{ij}\delta_{ab}D_{ja}$,
+\begin{align}
+  \widehat{G}^{(1)}_{\vb{k}',\vb{k}} = 
+  \widehat{G}^{(0)}_{\vb{k}'}
+  \frac{1}{V}\sum_j
+  e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
+  \bigg[
+    v_{\vb{k}'-\vb{k}}(j) - T\sum_{n;a,b}D_{jj,ab}(\varepsilon_n)A^{ab}_{\vb{k}'-\vb{k}}(j)
+  \bigg]\widehat{\tau}_3
+  \widehat{G}^{(0)}_{\vb{k}}
+\end{align}
+Apply $\prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}$ to do position average, we have
+\begin{align}
+  \prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}
+  \widehat{G}^{(1)}_{k'k} = 
+  \widehat{G}^{(1)}_{k}\delta_{k'k} = \delta_{k'k}
+  \widehat{G}^{(0)}_{k}
+  \frac{1}{V}\sum_j
+  \bigg[
+    v_0(j) - T\sum_{n,a}D_{j,a}(\varepsilon_n)m^{aa}_0(j)
+  \bigg]\widehat{\tau}_3
+  \widehat{G}^{(0)}_k
+\end{align}
+In Maekawa's model, $m^{aa}_0(j)=0$ and $v_0(j)=v_0$.
+But more generally if we do the orientation average, we also have
+$\ev{m_{\vb{k}'-\vb{k}}}_\Omega=\ev{n_{\vb{k}'-\vb{k}}}_\Omega=0$.
+We denote $\frac{1}{V}\sum_j\rightarrow n_\text{imp}$,
+\begin{align}
+    \widehat{G}^{(1)}_k = \widehat{G}^{(0)}_{k}n_\text{imp}v_0\widehat{\tau}_3\widehat{G}_k^{(0)}
+\end{align}
+which is exactly the static impurity result.
+The second-order terms include the v-v, v-m, m-m, Saturn and the figure-eight diagrams.
+\begin{align}\label{self-energy}
+    \widehat{G}^{(\text{Saturn})}_{k''k}(\varepsilon_n)
+    =-\frac{1}{V^2}&\sum_{ij}\sum_{abcdk'}
+    e^{-i(\vb{k}''-\vb{k}')\cdot\vb{R}_i}
+    e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
+    A_{k''-k'}^{cd}(i) A_{k'-k}^{ab}(j)\nonumber\\
+    \times
+    T^2&\sum_{n_1,n_2}
+    D_{ij,ca}(\varepsilon_{n_1})D_{ji,bd}(\varepsilon_{n_2})
+    \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
+    \widehat{G}^0_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+In the Saturn diagram, the \textbf{unperturbed} pseudo-fermion Green's function already demands repeated scattering of the same impurity.
+\begin{align}
+    \widehat{G}^{(\text{Saturn})}_{k''k}(\varepsilon_n)
+  =-\frac{1}{V^2}\sum_{j}e^{-i(\vb{k}''-\vb{k})\cdot\vb{R}_j}
+  \sum_{abk'}
+  A_{k''-k'}^{ba}(j)A_{k'-k}^{ab}(j)
+  T^2\sum_{n_1,n_2}
+  D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
+  \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
+  \widehat{G}^{(0)}_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+  \widehat{\tau}_3
+  \widehat{G}^{(0)}_k.
+\end{align}
+Apply $\prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}$ to do position average, we have
+\begin{align}
+    \widehat{G}^{(\text{Saturn})}_{k}(\varepsilon_n)
+    = -\frac{1}{V^2}\sum_{jabk'}|A^{ab}_{k'-k}(j)|^2
+    T^2\sum_{n_1,n_2}
+    D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
+    \widehat{G}^{(0)}_k\widehat{\tau}_3
+    \widehat{G}^{(0)}_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+Apply orientation average $\prod_{i=1}^{N}\int\frac{\dd\Omega_{a_j}}{4\pi}$,
+which is equivalently averaging over the external momentum direction $\prod_{i=1}^{N}\int\frac{\dd\Omega_k}{4\pi}$.
+Note that $\frac{1}{V}\sum_{k'}\rightarrow\frac{1}{(2\pi)^3}\int\dd[3]{k'}\approx\int\frac{\dd\Omega_{k'}}{4\pi}N(0)\int\dd\xi_{k'}$,
+\begin{align}
+    \widehat{G}^{(\text{Saturn})}_{k}(\varepsilon_n)
+    = -\frac{1}{V}\sum_{jab}N(0)\int\dd\xi_{k'}
+    \ev{|A^{ab}_{k'-k}|^2}_\Omega
+    T^2\sum_{n_1,n_2}
+    D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
+    \widehat{G}^{(0)}_k\widehat{\tau}_3
+    \widehat{G}^{(0)}_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+We define the inelastic scattering time $\tau_{in}$ as $\frac{\hbar}{2\pi\tau}=n_\text{imp}N(0)\ev{|A|^2}_\Omega$,
+assume the interaction potential only depends on the direction of the momentum transfer,
+define quasiclassical Green's function $\widehat{\mathcal{G}}$, and assume identical TLS energy splitting,
+\begin{align}
+    \widehat{G}^{(\text{Saturn-inelastic})}_{k}(\varepsilon_n)
+    = -\sum_{ab}
+    \left(\frac{\hbar}{2\pi\tau_n}\delta^{ab} + \frac{\hbar}{2\pi\tau_m}\sigma_x^{ab}\right)
+    T^2\sum_{n_1,n_2}
+    D_a(\varepsilon_{n_1})D_b(\varepsilon_{n_2})
+    \widehat{G}^{(0)}_k
+    \widehat{\mathcal{G}}^{(0)}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+Later we can still do a configuration average over the TLS energy splitting.
 \end{document}
