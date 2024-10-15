@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728885319.51283 "c:/Users/jungu/Documents/TLS_self_energy/gap_eq_and_self_energy.tex" "gap_eq_and_self_energy.pdf" "gap_eq_and_self_energy" 1728885320.45756 0
+["pdflatex"] 1728966196.82058 "c:/Users/jungu/Documents/TLS_self_energy/gap_eq_and_self_energy.tex" "gap_eq_and_self_energy.pdf" "gap_eq_and_self_energy" 1728966197.91802 0
   "C:/Users/jungu/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728793721 186066 c797610d3c7aadc509276bf4bcd8a24b ""
   "C:/Users/jungu/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1709021278 24230114 da53312a3a63f8ba44e54ca21aecd6ee ""
   "C:/Users/jungu/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -49,9 +49,9 @@
   "C:/Users/jungu/AppData/Local/Programs/MiKTeX/tex/latex/l3kernel/expl3.sty" 1707860315 6565 9a501707d062c4a085cfe7b1a181348d ""
   "C:/Users/jungu/AppData/Local/Programs/MiKTeX/tex/latex/l3packages/xparse/xparse.sty" 1707860452 9327 91ed8f2a937c64fb92bd4096145ff67c ""
   "C:/Users/jungu/AppData/Local/Programs/MiKTeX/tex/latex/physics/physics.sty" 1356002062 29610 a9597219b282d9c78b02393dcd7d4322 ""
-  "c:/Users/jungu/Documents/TLS_self_energy/gap_eq_and_self_energy.tex" 1728885318 28326 9dbfa94815e23df88652238c4b58ce03 ""
-  "gap_eq_and_self_energy.aux" 1728885320 1577 ae5298ab2a2f616ffa5da3d667bb26e0 "pdflatex"
-  "gap_eq_and_self_energy.tex" 1728885318 28326 9dbfa94815e23df88652238c4b58ce03 ""
+  "c:/Users/jungu/Documents/TLS_self_energy/gap_eq_and_self_energy.tex" 1728966195 30241 24207736423330466b56b16493d0c08e ""
+  "gap_eq_and_self_energy.aux" 1728966197 1577 ae5298ab2a2f616ffa5da3d667bb26e0 "pdflatex"
+  "gap_eq_and_self_energy.tex" 1728966195 30241 24207736423330466b56b16493d0c08e ""
   (generated)
   "gap_eq_and_self_energy.aux"
   "gap_eq_and_self_energy.log"

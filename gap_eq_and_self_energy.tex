@@ -478,13 +478,13 @@ They are elastic and are just corrections to the chemical potential.
 Note that the \textbf{unperturbed} pseudo-fermion propagator $D_{ij,ab}\equiv\delta_{ij}\delta_{ab}D_{ja}$,
 \begin{align}
   \widehat{G}^{(1)}_{\vb{k}',\vb{k}} = 
-  \widehat{G}^{(0)}_{\vb{k}'}
+  \widehat{G}^{(0)}_{k'}
   \frac{1}{V}\sum_j
   e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
   \bigg[
     v_{\vb{k}'-\vb{k}}(j) - T\sum_{n;a,b}D_{jj,ab}(\varepsilon_n)A^{ab}_{\vb{k}'-\vb{k}}(j)
   \bigg]\widehat{\tau}_3
-  \widehat{G}^{(0)}_{\vb{k}}
+  \widehat{G}^{(0)}_k
 \end{align}
 Apply $\prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}$ to do position average, we have
 \begin{align}
@@ -499,34 +499,32 @@ Apply $\prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}$ to do position average, we have
   \widehat{G}^{(0)}_k
 \end{align}
 In Maekawa's model, $m^{aa}_0(j)=0$ and $v_0(j)=v_0$.
-But more generally if we do the orientation average, we also have
-$\ev{m_{\vb{k}'-\vb{k}}}_\Omega=\ev{n_{\vb{k}'-\vb{k}}}_\Omega=0$.
-We denote $\frac{1}{V}\sum_j\rightarrow n_\text{imp}$,
+We denote $\frac{1}{V}\sum_j\rightarrow n_s$,
 \begin{align}
-    \widehat{G}^{(1)}_k = \widehat{G}^{(0)}_{k}n_\text{imp}v_0\widehat{\tau}_3\widehat{G}_k^{(0)}
+    \widehat{G}^{(1)}_k = \widehat{G}^{(0)}_{k}n_sv_0\widehat{\tau}_3\widehat{G}_k^{(0)}
 \end{align}
 which is exactly the static impurity result.
 The second-order terms include the v-v, v-m, m-m, Saturn and the figure-eight diagrams.
 \begin{align}\label{self-energy}
-    \widehat{G}^{(\text{Saturn})}_{k''k}(\varepsilon_n)
+    \widehat{G}^{(\text{Saturn})}_{\vb{k}'',\vb{k}}(\varepsilon_n)
     =-\frac{1}{V^2}&\sum_{ij}\sum_{abcdk'}
     e^{-i(\vb{k}''-\vb{k}')\cdot\vb{R}_i}
     e^{-i(\vb{k}'-\vb{k})\cdot\vb{R}_j}
-    A_{k''-k'}^{cd}(i) A_{k'-k}^{ab}(j)\nonumber\\
+    A_{\vb{k}''-\vb{k}'}^{cd}(i) A_{\vb{k}'-\vb{k}}^{ab}(j)\nonumber\\
     \times
     T^2&\sum_{n_1,n_2}
-    D_{ij,ca}(\varepsilon_{n_1})D_{ji,bd}(\varepsilon_{n_2})
+    D_{ij,da}(\varepsilon_{n_1})D_{ji,bc}(\varepsilon_{n_2})
     \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
-    \widehat{G}^0_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
+    \widehat{G}^{(0)}_{k'}(\varepsilon_n+\varepsilon_{n_2}-\varepsilon_{n_1})
     \widehat{\tau}_3
     \widehat{G}^{(0)}_k.
 \end{align}
 In the Saturn diagram, the \textbf{unperturbed} pseudo-fermion Green's function already demands repeated scattering of the same impurity.
 \begin{align}
-    \widehat{G}^{(\text{Saturn})}_{k''k}(\varepsilon_n)
+    \widehat{G}^{(\text{Saturn})}_{\vb{k}'',\vb{k}}(\varepsilon_n)
   =-\frac{1}{V^2}\sum_{j}e^{-i(\vb{k}''-\vb{k})\cdot\vb{R}_j}
   \sum_{abk'}
-  A_{k''-k'}^{ba}(j)A_{k'-k}^{ab}(j)
+  A_{\vb{k}''-\vb{k}'}^{ba}(j)A_{\vb{k}'-\vb{k}}^{ab}(j)
   T^2\sum_{n_1,n_2}
   D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
   \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
@@ -536,8 +534,8 @@ In the Saturn diagram, the \textbf{unperturbed} pseudo-fermion Green's function 
 \end{align}
 Apply $\prod_{i=1}^{N}\int\frac{\dd[3]{R_i}}{V}$ to do position average, we have
 \begin{align}
-    \widehat{G}^{(\text{Saturn})}_{k}(\varepsilon_n)
-    = -\frac{1}{V^2}\sum_{jabk'}|A^{ab}_{k'-k}(j)|^2
+    \widehat{G}^{(\text{Saturn})}_{\vb{k}}(\varepsilon_n)
+    = -\frac{1}{V^2}\sum_{jabk'}|A^{ab}_{\vb{k}'-\vb{k}}(j)|^2
     T^2\sum_{n_1,n_2}
     D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
     \widehat{G}^{(0)}_k\widehat{\tau}_3
@@ -551,7 +549,7 @@ Note that $\frac{1}{V}\sum_{k'}\rightarrow\frac{1}{(2\pi)^3}\int\dd[3]{k'}\appro
 \begin{align}
     \widehat{G}^{(\text{Saturn})}_{k}(\varepsilon_n)
     = -\frac{1}{V}\sum_{jab}N(0)\int\dd\xi_{k'}
-    \ev{|A^{ab}_{k'-k}|^2}_\Omega
+    \ev{|A^{ab}_{\vb{k}'-\vb{k}}(j)|^2}_\Omega
     T^2\sum_{n_1,n_2}
     D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_2})
     \widehat{G}^{(0)}_k\widehat{\tau}_3
@@ -559,13 +557,13 @@ Note that $\frac{1}{V}\sum_{k'}\rightarrow\frac{1}{(2\pi)^3}\int\dd[3]{k'}\appro
     \widehat{\tau}_3
     \widehat{G}^{(0)}_k.
 \end{align}
-We define the inelastic scattering time $\tau_{in}$ as $\frac{\hbar}{2\pi\tau}=n_\text{imp}N(0)\ev{|A|^2}_\Omega$,
+We define the inelastic scattering time $\tau_{in}$ as $\frac{\hbar}{2\pi\tau}=n_sN(0)\ev{|A|^2}_\Omega$,
 assume the interaction potential only depends on the direction of the momentum transfer,
 define quasiclassical Green's function $\widehat{\mathcal{G}}$, and assume identical TLS energy splitting,
 \begin{align}
-    \widehat{G}^{(\text{Saturn-inelastic})}_{k}(\varepsilon_n)
+    \widehat{G}^{(\text{Saturn})}_{k}(\varepsilon_n)
     = -\sum_{ab}
-    \left(\frac{\hbar}{2\pi\tau_n}\delta^{ab} + \frac{\hbar}{2\pi\tau_m}\sigma_x^{ab}\right)
+    \left(\frac{\hbar}{2\pi\tau_m}\delta^{ab} + \frac{\hbar}{2\pi\tau_n}\sigma_x^{ab}\right)
     T^2\sum_{n_1,n_2}
     D_a(\varepsilon_{n_1})D_b(\varepsilon_{n_2})
     \widehat{G}^{(0)}_k
@@ -574,4 +572,58 @@ define quasiclassical Green's function $\widehat{\mathcal{G}}$, and assume ident
     \widehat{G}^{(0)}_k.
 \end{align}
 Later we can still do a configuration average over the TLS energy splitting.
+We will also see that the $\frac{\hbar}{2\pi\tau_m}\delta^{ab}$ term will not contribute to the self-energy.
+The figure-eight diagram is
+\begin{align}
+    \widehat{G}^{(\text{figure-8})}_{\vb{k}'',\vb{k}}(\varepsilon_n)
+    =\frac{1}{V^2}\sum_{ij}\sum_{abcdk'}
+    e^{-i(\vb{k}''-\vb{k})\cdot\vb{R}_j}
+    A_0^{cd}(i) A_{\vb{k}''-\vb{k}}^{ab}(j)
+    T^2\sum_{n_1,n_2}
+    D_{ij,da}(\varepsilon_{n_1})D_{ji,bc}(\varepsilon_{n_1})
+    \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
+    \widehat{G}^{(0)}_{k'}(\varepsilon_{n_2})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+We can already see that sum over $n_2$ will give zero.
+Similarly we have
+\begin{align}
+    \widehat{G}^{(\text{figure-8})}_{\vb{k}'',\vb{k}}(\varepsilon_n)
+    =\frac{1}{V^2}\sum_{jabk'}
+    e^{-i(\vb{k}''-\vb{k})\cdot\vb{R}_j}
+    A_0^{ba}(j) A_{\vb{k}''-\vb{k}}^{ab}(j)
+    T^2\sum_{n_1,n_2}
+    D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_1})
+    \widehat{G}^{(0)}_{k''}\widehat{\tau}_3
+    \widehat{G}^{(0)}_{k'}(\varepsilon_{n_2})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+apply position average
+\begin{align}
+    \widehat{G}^{(\text{figure-8})}_{\vb{k}}(\varepsilon_n)
+    =\frac{1}{V^2}\sum_{jabk'}
+    |A_0^{ab}(j)|^2
+    T^2\sum_{n_1,n_2}
+    D_{ja}(\varepsilon_{n_1})D_{jb}(\varepsilon_{n_1})
+    \widehat{G}^{(0)}_k\widehat{\tau}_3
+    \widehat{G}^{(0)}_{k'}(\varepsilon_{n_2})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k.
+\end{align}
+apply orientation average.
+The quasiclassical Green's function is odd in the Matsubara energy.
+Sum over $n_2$ will give zero.
+\begin{align}
+    \widehat{G}^{(\text{figure-8})}_k(\varepsilon_n)
+    =\sum_{ab}
+    \left(\frac{\hbar}{2\pi\tau_m}\delta^{ab} + \frac{\hbar}{2\pi\tau_n}\sigma_x^{ab}\right)
+    T^2\sum_{n_1,n_2}
+    D_a(\varepsilon_{n_1})D_b(\varepsilon_{n_1})
+    \widehat{G}^{(0)}_k
+    \widehat{\mathcal{G}}^{(0)}(\varepsilon_{n_2})
+    \widehat{\tau}_3
+    \widehat{G}^{(0)}_k = 0
+\end{align}
 \end{document}
